@@ -1,4 +1,4 @@
-""" this is the comprehensive code for a ph_sensor.py module, with enhanced error handling, 
+"""This is the comprehensive code for a ph_sensor.py module, with enhanced error handling, 
 connection retries, and sensor calibration, would look something like this:"""
 
 # ph_sensor.py
@@ -82,3 +82,14 @@ if __name__ == '__main__':
     ph_sensor.calibrate('two_point', {'low': 4.0, 'high': 7.0})
 
     ph_sensor.close()
+
+
+"""This example includes a ModbusClient class, which is a hypothetical class that handles the lower-level details of Modbus communication.
+The PHSensor class uses this client to perform read operations with retries. 
+It also includes a calibrate method placeholder for implementing sensor calibration.
+The logging module provides a way to log information and errors, which is helpful for debugging and monitoring the sensor's operation.
+
+The conversion functions (convert_ph_value and convert_temperature) are placeholders 
+where you would add the actual conversion logic based on your sensor's specifications. 
+The calibration function (calibrate) is also a placeholder that would need to be implemented according to 
+how the sensor expects to receive calibration commands and data."""

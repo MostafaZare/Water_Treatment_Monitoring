@@ -1,5 +1,5 @@
 # Owipex_Project
 
-#IoT System Refactoring for Water Treatment Monitoring
+IoT System Refactoring for Water Treatment Monitoring
 
 

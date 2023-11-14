@@ -1,59 +1,46 @@
-Project Overview
-The project aims to refactor and enhance an existing monolithic and complex industrial IoT system for water treatment monitoring. This system is tightly integrated with the Thingsboard IoT platform and encompasses sensor data collection, actuator control, and data telemetry.
+Project Overview:
+The project focuses on refactoring an extensive monolithic industrial IoT system for water treatment monitoring, which is deeply integrated with the Thingsboard IoT platform. It involves sensor data collection, actuator control, and data telemetry.
 
 Current System Structure:
-The codebase consists of a single, extensive script (h2o.py).
-Extensive use of global variables for configuration and state management.
-Hardcoded sensor and actuator integration.
-Data is transmitted to Thingsboard at a fixed interval, leading to high network traffic.
-A custom Modbus library is used for RS485 sensor communication.
 
+A single extensive script (h2o.py) acts as the core of the system.
+Global variables are heavily utilized for configuration and state management.
+Sensor and actuator integrations are hard-coded and inflexible.
+Fixed intervals for data transmission to Thingsboard result in high network traffic.
+A bespoke Modbus library manages RS485 sensor communications.
 Refactoring Goals:
-+Modularization
-Break the codebase into logical units:
-thingsboard_client.py: For Thingsboard communication.
-device_manager.py: For managing different sensors and actuators.
-state_manager.py: For configuration and state management.
-gps_handler.py: For GPS data processing.
-Create separate scripts for sensor and actuator types.
-Implement plug-and-play for easy device integration.
-+Optimization
-Optimize data transmission to Thingsboard with dynamic intervals.
-Enhance the timer logic for task scheduling.
-Standardize the custom Modbus library.
-+Architecture Enhancement
-Develop a configuration management system to replace global variables.
-Create an extensible sensor/actuator framework.
-Implement an intelligent telemetry data transmission strategy to Thingsboard.
 
+Modularization: Decompose the codebase into distinct modules for better manageability and scalability.
+Optimization: Refine data transmission with adaptive scheduling and enhance timer logic for more efficient task management.
+Architecture Enhancement: Develop a centralized configuration system and a plug-and-play framework for devices.
 Responsibilities:
-Analyze the current codebase for refactoring opportunities.
-Implement a modular architecture to separate concerns.
-Develop a central configuration management system.
-Design an integration framework for sensors/actuators.
-Update the Modbus library for robust communication.
-Write comprehensive documentation for the system.
 
+Thoroughly analyze the current codebase to pinpoint refactoring needs.
+Craft a modular architecture that promotes separation of concerns.
+Introduce a central configuration management system.
+Construct an extensible framework for seamless sensor and actuator integration.
+Modernize the Modbus library for consistent and reliable communication.
+Generate extensive documentation to facilitate future development and maintenance.
 Implementation Steps:
-Modularize the Code: Segregate functions and classes into separate files with defined tasks.
-Improve Error Handling: Implement appropriate exception handling across modules.
-Configuration Management: Establish a class for managing configurations, and replacing global variables.
-System Calls Optimization: Utilize Python libraries for system and sensor value retrieval.
-Thingsboard Synchronization: Define methods for syncing with Thingsboard within the configuration class.
-Code Review and Refactoring: Conduct another round of refactoring to polish the codebase.
-Testing: Develop and perform tests to ensure system reliability and proper operation.
 
+Code Modularization: Split the code into logical units, each with a clear purpose.
+Error Handling Improvement: Strengthen exception handling across the system.
+Configuration Management Enhancement: Replace global variables with a centralized configuration manager.
+System Calls Optimization: Utilize Python libraries for more efficient system and sensor operations.
+Thingsboard Synchronization: Integrate synchronization mechanisms directly within the configuration management system.
+Code Review and Refactoring: Conduct a meticulous review and refinement of the codebase post-improvements.
+Testing: Implement robust testing procedures to verify system integrity and functionality.
 Additional Considerations:
-Eliminate the use of State.json by utilizing Thingsboard synchronization.
-Develop a strategy for sensor data acquisition and integration.
-Establish a database for storing sensor data, potentially using the existing PostgreSQL setup.
-Implement a flexible timing mechanism that allows specifying variable read intervals in the configuration.
 
+Transition away from using State.json in favor of real-time Thingsboard synchronization.
+Strategize sensor data collection and device integration to promote ease of adding new devices.
+Leverage the existing PostgreSQL database for structured sensor data storage.
+Introduce configurable timing mechanisms for variable sensor reading intervals, enhancing flexibility and efficiency.
 Documentation:
-Code Documentation: Provide inline comments and docstrings for clarity.
-User Guide: Offer a manual for system setup and usage.
-Developer Guide: Outline the system's architecture and extension procedures.
 
+Code Documentation: Annotate the code with comprehensive comments and explanations.
+User Guide: Provide detailed instructions for system deployment and operation.
+Developer Guide: Describe the system architecture and guidelines for extending the system with new functionalities.
 
 Restructure the primary GitHub repository for the IoT system refactoring project:
 /

@@ -1,12 +1,47 @@
-thingsboard_client/: This directory will contain all code related to communication with Thingsboard.
-device_manager/: Here, you’ll place the code that handles the interaction with different devices, such as sensors and actuators.
-state_manager/: This module will handle configurations and system states, potentially replacing the use of state.json.
-handlers/: The handlers directory will have modules that manage specific tasks, such as GPS data handling and flow rate calculations.
-models/: Define data models or schemas representing sensors, actuators, and other entities.
-utilities/: Place utility scripts or classes here, such as those for tracking runtime.
-main/: The entry point of the application will reside here, like main.py.
-tests/: This will contain test cases and test suites for the different modules.
-docs/: All documentation files, including markdown files for setup, usage, and development guides, will be stored here.
-scripts/: Any script files or JSON configuration data files can be placed here.
-config/: Store default or example configuration files here.
-data/: If using files for state management, this can store them; if moving to a database, initialization scripts could go here.
+"""thingsboard_client/: 
+- Contains the client code for interfacing with the ThingsBoard API, managing telemetry data, attributes, and RPC.
+
+device_manager/: 
+- Manages device communication, including Modbus interactions and specific code for radar, turbidity, and pH sensors.
+
+state_manager/: 
+- Manages system configuration and state, potentially eliminating the need for direct file-based state management.
+
+handlers/: 
+- Contains modules for specific tasks like GPS data processing and flow rate calculations based on sensor data.
+
+models/: 
+- Defines data structures or classes for sensors and actuators, encapsulating their properties and behaviors.
+
+utilities/: 
+- Includes utility classes or scripts, such as those for tracking system runtime or other common functions.
+
+main/: 
+- Hosts the main application script that orchestrates the initialization and coordination of other modules.
+
+tests/: 
+- Contains test cases for the modules, ensuring functionality and stability through unit and integration tests.
+
+docs/: 
+- Stores all project documentation, including README, user guides, and developer guides for system setup and usage.
+
+scripts/: 
+- Holds miscellaneous scripts like server setup and initialization, alongside JSON configuration data files.
+
+config/: 
+- Contains configuration files or templates that set default values and parameters for the system.
+
+data/: 
+- If file-based state management is retained, this directory will store such files; otherwise, it may contain database initialization scripts or migration tools.
+
+hardware_interface/: 
+- Includes scripts for direct hardware control, such as GPIO manipulation on Linux systems.
+
+deployment/: 
+- Contains deployment scripts for setting up edge services and the main server, facilitating the system's installation and setup.
+
+calibration/: 
+- Stores calibration data for sensors in JSON format, allowing for accurate readings and measurements.
+
+backup/: 
+- Contains backup scripts and copies of important code, ensuring that there is a fallback in case of issues with the current codebase."""

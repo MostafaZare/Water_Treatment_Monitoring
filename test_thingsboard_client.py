@@ -83,4 +83,6 @@ if __name__ == '__main__':
 """In this test suite, we have mocked the paho.mqtt.client.Client class to prevent actual network operations. 
 The test_subscribe_to_rpc method checks if the client subscribes to the correct topic for RPC requests. 
 The test_handle_rpc_request simulates an incoming RPC request and checks if the method to handle it is called. 
-Similarly, test_respond_to_rpc tests the response to an RPC request, while test_handle_attribute_update simulates an attribute update message from ThingsBoard."""
+Similarly, test_respond_to_rpc tests the response to an RPC request, while test_handle_attribute_update simulates an attribute update message from ThingsBoard.
+I've also added test_on_connect_success and test_on_connect_failure methods to test the client's behavior when the connection to ThingsBoard is successful or fails.
+The actual implementations of subscribe_to_rpc, handle_rpc_request, respond_to_rpc, and handle_attribute_update would need to be written within your ThingsBoardClient class."""

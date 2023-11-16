@@ -22,9 +22,6 @@ main/:
 tests/: 
 - Contains test cases for the modules, ensuring functionality and stability through unit and integration tests.
 
-docs/: 
-- Stores all project documentation, including README, user guides, and developer guides for system setup and usage.
-
 scripts/: 
 - Holds miscellaneous scripts like server setup and initialization, alongside JSON configuration data files.
 

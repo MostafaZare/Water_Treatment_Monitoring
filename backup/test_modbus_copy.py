@@ -4,10 +4,10 @@ Enhancing this script could involve adding more structured testing procedures, e
 """
 
 import logging
-from modbus_lib import DeviceManager
-from radar_sensor import RadarSensor
-from turbidity_sensor import TrubSensor
-from ph_sensor import PHSensor
+from device_manager.modbus_lib import DeviceManager
+from device_manager.radar_sensor import RadarSensor
+from device_manager.turbidity_sensor import TrubSensor
+from device_manager.ph_sensor import PHSensor
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

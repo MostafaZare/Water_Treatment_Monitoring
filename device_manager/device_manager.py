@@ -110,9 +110,9 @@ class RadarSensor(DeviceInterface):
 Finally, you would import and use these device classes in your device_manager.py:"""
 # device_manager.py
 
-from radar_sensor import RadarSensor
-from turbidity_sensor import TurbiditySensor
-from ph_sensor import PHSensor
+from device_manager.radar_sensor import RadarSensor
+from device_manager.turbidity_sensor import TurbiditySensor
+from device_manager.ph_sensor import PHSensor
 # ...import other device classes as needed
 
 # The rest of the DeviceManager code remains the same as the previous example

@@ -1,5 +1,5 @@
 # turbidity_sensor.py
-from modbus_lib import ModbusDevice
+from device_manager.modbus_lib import ModbusDevice
 from device_interface import DeviceInterface
 
 class TurbiditySensor(DeviceInterface):

@@ -2,7 +2,7 @@
 connection retries, and sensor calibration, would look something like this:"""
 
 # ph_sensor.py
-from modbus_lib import ModbusClient
+from device_manager.modbus_lib import ModbusClient
 from device_interface import DeviceInterface
 import logging
 import time

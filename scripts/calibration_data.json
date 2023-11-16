@@ -1,0 +1,47 @@
+
+
+{
+    "_comment": "The calibration_data.json file would typically contain calibration coefficients or parameters used by your application to interpret sensor data correctly. So, you may provide it yourself. Here's an example of what the content of the calibration_data.json file might look like for the project that includes pH, turbidity, and radar level sensors:",
+    "_comment": "The pH section includes the slope and intercept of the calibration line, the reference temperature, and a list of calibration points.The turbidity section defines the conversion factor from NTU (Nephelometric Turbidity Units) to mg/L (milligrams per liter) and a calibration curve that correlates NTU values to sensor voltage readings.The radar_level section contains parameters for converting the measured distance to the actual water level and a list of calibration distance points.The flow_rate section describes the conversion factors for flow rate sensors and provides a set of calibration points that correlate actual flow rates with ADC readings.",
+
+  "pH": {
+    "slope": 3.68,
+    "intercept": -1.23,
+    "reference_temperature": 25,
+    "calibration_points": [
+      {"standard_value": 7.0, "measured_value": 2.5},
+      {"standard_value": 4.0, "measured_value": 1.8},
+      {"standard_value": 10.0, "measured_value": 4.2}
+    ]
+  },
+  "turbidity": {
+    "ntu_to_mg_l_conversion": 0.45,
+    "calibration_curve": [
+      {"ntu": 0, "voltage": 0.1},
+      {"ntu": 100, "voltage": 2.5},
+      {"ntu": 300, "voltage": 4.5}
+    ]
+  },
+  "radar_level": {
+    "distance_to_level_conversion": {
+      "offset": 0.3,
+      "scaling_factor": 1.05
+    },
+    "calibration_distance_points": [
+      {"actual_distance": 100, "measured_distance": 98},
+      {"actual_distance": 200, "measured_distance": 195},
+      {"actual_distance": 300, "measured_distance": 294}
+    ]
+  },
+  "flow_rate": {
+    "flow_conversion": {
+      "k_factor": 5.1,
+      "zero_flow_adc": 512
+    },
+    "calibration_flow_points": [
+      {"actual_flow_l_min": 10, "adc_reading": 600},
+      {"actual_flow_l_min": 20, "adc_reading": 700},
+      {"actual_flow_l_min": 30, "adc_reading": 800}
+    ]
+  }
+}

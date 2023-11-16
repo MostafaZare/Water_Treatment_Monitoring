@@ -11,7 +11,7 @@ import logging
 from thingsboard_client import ThingsBoardClient
 from device_manager import DeviceManager
 from state_manager import StateManager
-from config_loader import ConfigLoader
+from state_manager.config_loader import ConfigLoader
 from handlers import GPSHandler, FlowCalculationHandler
 from utilities import RuntimeTracker
 

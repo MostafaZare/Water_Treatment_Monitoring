@@ -5,7 +5,7 @@ It also includes error handling and encapsulates these steps in a simple command
 
 #!/usr/bin/env python3
 import sys
-from gpiocontrol import GPIOControl
+from hardware_interface.gpiocontrol import GPIOControl
 
 def main():
     if len(sys.argv) < 3:

@@ -1,56 +1,77 @@
-"""The edge_setup_step_server.sh is a shell script that would typically be used to set up an edge server, 
-which might include tasks like installing necessary packages, configuring services, and deploying edge-specific applications."""
+
+
+# """The edge_setup_step_server.sh script is a server setup script, typically used for installing and configuring server software. """
+
 
 #!/bin/bash
-# edge_setup_step_server.sh
-# Advanced and comprehensive setup for an edge server.
 
-# Stop on the first sign of trouble
-set -e
+# Script to set up ThingsBoard Edge Server
+# This script includes advanced error handling and additional setup methods
 
-echo "Starting edge server setup..."
+LOG_FILE="/var/log/edge_setup.log"
+THINGSBOARD_HOST="167.172.189.151"
+ROOT_DIR="/root/PipeLineFolder"
+EDGE_CODE_DIR="${ROOT_DIR}/edge_initial_code"
+SSH_PASS='78WDQEuz'
+TB_EDGE_SERVICE="/etc/tb-edge/conf/tb-edge.conf"
 
-# Update the package repository
-sudo apt-get update
+# Function to log a message
+log() {
+    echo "$(date) : $1" | tee -a $LOG_FILE
+}
 
-# Install necessary packages
-sudo apt-get install -y git sshpass maven docker.io docker-compose
+# Function to handle errors
+error_exit() {
+    log "$1"
+    exit 1
+}
 
-# Clone the edge service repository if it doesn't exist
-EDGE_CODE_DIR="/path/to/edge/code"
-if [ ! -d "$EDGE_CODE_DIR" ]; then
-    git clone https://gitlab.example.com/your-repo/edge-service.git "$EDGE_CODE_DIR"
-else
-    cd "$EDGE_CODE_DIR"
-    git pull origin main
-fi
+# Function to update ThingsBoard configuration
+update_config() {
+    log "Updating ThingsBoard Edge configuration"
+    rsync -va "${EDGE_CODE_DIR}/tb-edge.deb" "${EDGE_CODE_DIR}/"
+    rsync -va "${EDGE_CODE_DIR}/tb-edge.conf" $TB_EDGE_SERVICE || error_exit "Error updating configuration"
+}
 
-# Navigate to the edge service directory and build the project
-cd "$EDGE_CODE_DIR"
-mvn clean install -DskipTests
+# Function to install dependencies
+install_dependencies() {
+    log "Installing dependencies"
+    sudo apt-get update || error_exit "Error updating package list"
+    sudo apt-get install -y git sshpass || error_exit "Error installing dependencies"
+}
 
-# Load the Docker containers for the edge services
-echo "Setting up Docker containers for edge services..."
-docker-compose -f docker-compose-edge.yml up -d
+# Function to clone or update edge_initial_code repository
+update_code() {
+    if [ ! -d $EDGE_CODE_DIR ]; then
+        mkdir -p $EDGE_CODE_DIR
+        git clone https://gitlab.appunik-team.com/Appunik_Akshay/edge_initial_code.git $EDGE_CODE_DIR || error_exit "Error cloning repository"
+    else
+        cd $EDGE_CODE_DIR
+        git pull origin main || error_exit "Error pulling latest code"
+    fi
+}
 
-# Add additional setup steps as needed, such as configuring databases or copying configuration files
-# ...
+# Function to install ThingsBoard Edge
+install_edge() {
+    log "Installing ThingsBoard Edge"
+    sudo apt-get install -y maven || error_exit "Error installing Maven"
+    mvn clean install -DskipTests -Ddockerfile.skip=true || error_exit "Error building ThingsBoard Edge"
+    log "Setup Done"
+    cd ..
+    update_config
+    sudo dpkg -i "${EDGE_CODE_DIR}/tb-edge.deb" || error_exit "Error installing ThingsBoard Edge package"
+    sudo service tb-edge restart || error_exit "Error restarting ThingsBoard Edge service"
+}
 
-# Check the status of the Docker containers
-docker ps -a
-
-# Additional error handling and setup verification can go here
-# ...
-
-echo "Edge server setup completed successfully."
+# Main installation routine
+install_dependencies
+update_code
+install_edge
+log "ThingsBoard Edge setup completed successfully"
 
 
-
-"""set -e will cause the script to exit immediately if a command exits with a non-zero status.
-sudo apt-get update updates the package lists for upgrades and new package installations.
-sudo apt-get install -y git sshpass maven docker.io docker-compose installs necessary packages including Git, Maven, Docker, and Docker Compose.
-The script checks if a directory exists where the edge code is supposed to be cloned; if not, it clones the repository.
-It then navigates into the directory and runs a Maven build, skipping tests for speed in a deployment scenario.
-Docker Compose is used to bring up the services defined in a docker-compose-edge.yml file, which you would need to define according to your application's architecture.
-There's a placeholder for additional setup steps, like database configuration or copying configuration files.
-It ends by checking the status of the Docker containers to ensure they are running."""
+# """This script assumes you are running as the root user or a user with sufficient privileges to install software and write to /var/log/edge_setup.log. 
+# It includes functions for logging, error handling, updating the ThingsBoard Edge configuration, installing dependencies, updating code from a Git repository, and installing the ThingsBoard Edge.
+# To ensure this script works as expected, you'll need to adjust the variables and repository URLs to match your environment and configuration. 
+# You would save this script as edge_setup_step_server.sh and run it on the server where you want to install ThingsBoard Edge.
+# Make sure to give executable permissions to this script by running chmod +x edge_setup_step_server.sh before executing it."""

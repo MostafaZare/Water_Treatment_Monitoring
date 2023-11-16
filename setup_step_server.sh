@@ -1,5 +1,5 @@
-"""The following script demonstrates a series of steps for setting up a server, including the installation of necessary software, 
-configuration of services, handling of error scenarios, and logging of each step for troubleshooting purposes."""
+#The following script demonstrates a series of steps for setting up a server, including the installation of necessary software, 
+#configuration of services, handling of error scenarios, and logging of each step for troubleshooting purposes.
 
 #!/bin/bash
 # setup_step_server.sh
@@ -54,13 +54,11 @@ sudo service postgresql status
 echo "Main server setup completed successfully."
 
 
-"""
-set -e makes the script exit on any error.
-sudo apt-get update updates the package lists.
-The script installs Git, Maven, and cURL, which are common dependencies for setting up services.
-It checks for the existence of a project directory and clones or updates the repository as necessary.
-Maven is used to build the project, and PostgreSQL is installed and started.
-A thingsboard database is created, and the PostgreSQL service is restarted.
-Additional placeholder comments suggest where to insert specific commands for configuring ThingsBoard or other services.
-The script ends by checking the status of the PostgreSQL service to ensure it's running properly.
-"""
+#set -e makes the script exit on any error.
+#sudo apt-get update updates the package lists.
+#The script installs Git, Maven, and cURL, which are common dependencies for setting up services.
+#It checks for the existence of a project directory and clones or updates the repository as necessary.
+#Maven is used to build the project, and PostgreSQL is installed and started.
+#A thingsboard database is created, and the PostgreSQL service is restarted.
+#Additional placeholder comments suggest where to insert specific commands for configuring ThingsBoard or other services.
+#The script ends by checking the status of the PostgreSQL service to ensure it's running properly.

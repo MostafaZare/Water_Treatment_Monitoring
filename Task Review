@@ -86,11 +86,6 @@ Restructure the primary GitHub repository for the IoT system refactoring project
 |   |-- test_state_manager.py
 |   |-- test_thingsboard_client.py
 
-|-- docs/
-|   |-- README.md
-|   |-- user_guide.md
-|   |-- developer_guide.md
-
 |-- scripts/
 |   |-- __init__.py
 |   |-- calibration_data.json

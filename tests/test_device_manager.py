@@ -1,6 +1,4 @@
 #This script uses a mock device class to simulate interactions with real devices. 
-#It defines a series of tests to check if the DeviceManager can add devices, read data, write data, and handle errors as expected.
-#The MockDeviceWithState class is an extension of the MockDevice that holds state, allowing us to test the device manager's ability to interact with devices whose state can change.
 
 import unittest
 from device_manager import DeviceManager, DeviceInterface

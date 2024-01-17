@@ -1,12 +1,3 @@
-"""The main.py module serves as the entry point for your application. It should initialize all necessary components and start the main application logic.
-In this comprehensive main.py:
-All the necessary components of the application are initialized, such as the ThingsBoardClient, DeviceManager, StateManager, GPSHandler, and FlowCalculationHandler.
-A main loop is established where the primary application logic will run. This could include processing devices, handling GPS data, calculating flow rates, and synchronizing state.
-Error handling is in place to catch and log unexpected errors.
-A finally block ensures that even if an error occurs, the application will attempt to gracefully disconnect and clean up resources.
-The runtime is tracked from the start to the finish, providing useful metrics for performance analysis or debugging."""
-
-"main.py"
 import logging
 from thingsboard_client import ThingsBoardClient
 from device_manager import DeviceManager

@@ -12,7 +12,7 @@ from .thingsboard_client import ThingsboardClient
 # You can also define initialization code here
 print("Package initialized.")
 
-"""This file should be placed in the root of your Python package directory. 
+"""
 "If you are using Python 3.3 or above, __init__.py files are no longer required to define a directory as a Python package, 
 "but they are still used to define what gets imported when import * is called on a package. 
 "So, it's often still a good practice to include them.

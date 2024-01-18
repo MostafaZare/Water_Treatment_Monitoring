@@ -1,7 +1,4 @@
-"""
-The test_modbus_copy.py script seems to be a testing utility for Modbus communication with various devices.
-Enhancing this script could involve adding more structured testing procedures, error handling, and logging.
-"""
+
 
 import logging
 from device_manager.modbus_lib import DeviceManager

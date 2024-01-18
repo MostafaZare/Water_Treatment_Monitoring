@@ -1,5 +1,4 @@
 """The __init__.py file in Python is used to mark directories on disk as a Python package directory.
-"If you have a directory containing a __init__.py file, when you import the package in a Python script, the __init__.py executes and defines what symbols the package exposes to the outside world.
 "you can put the initialization code for the package in this file.
 "Below is an example of a simple __init__.py which might also include importing certain modules from the package for easier access:"""
 

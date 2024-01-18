@@ -1,4 +1,3 @@
-#The gpio.py script you've provided is designed to interact with the GPIO pins on a Raspberry Pi and communicate with the ThingsBoard platform using MQTT. 
 
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO

@@ -1,6 +1,6 @@
 
-"""Below is an example script GPIOExample.py that uses the GPIOControl class to control a GPIO pin. 
-This example demonstrates initializing the GPIO, setting it high, reading its value, and then cleaning up. 
+"""
+This  demonstrates initializing the GPIO, setting it high, reading its value, and then cleaning up. 
 It also includes error handling and encapsulates these steps in a simple command-line interface for toggling the GPIO state."""
 
 #!/usr/bin/env python3

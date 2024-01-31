@@ -15,5 +15,4 @@ print("Package initialized.")
 """
 "If you are using Python 3.3 or above, __init__.py files are no longer required to define a directory as a Python package, 
 "but they are still used to define what gets imported when import * is called on a package. 
-"So, it's often still a good practice to include them.
 "If you don't need any package-level initialization or symbols definition, then simply creating an empty file named __init__.py is sufficient"""

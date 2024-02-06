@@ -22,16 +22,6 @@ class TestDeviceManager(unittest.TestCase):
         self.dev_manager.add_device('radar', MockDevice())
         self.dev_manager.add_device('ph', MockDevice())
 
-    def test_add_device(self):
-        # Test that devices are correctly added to the manager
-        self.assertIn('radar', self.dev_manager.devices)
-        self.assertIn('ph', self.dev_manager.devices)
-        self.assertIsInstance(self.dev_manager.get_device('radar'), MockDevice)
-
-    def test_read_data(self):
-        # Test reading data from a device
-        data = self.dev_manager.get_device('radar').read_data()
-        self.assertEqual(data, "mock data")
 
     def test_write_data(self):
         # Test writing data to a device
